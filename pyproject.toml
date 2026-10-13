@@ -1,0 +1,43 @@
+[project]
+name = "faceless-yt-channel-generator"
+version = "0.7.3"
+description = "Desktop pipeline for generating faceless YouTube videos: script, TTS voiceover, B-roll assembly, thumbnail, upload metadata."
+readme = "CONTRIBUTING.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "faceless-yt maintainers" }]
+dependencies = [
+    "PySide6>=6.7",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "tomli-w>=1.0",
+    "rich>=13.7",
+    "pyyaml>=6.0",
+    "edge-tts>=6.1",
+    "moviepy>=1.0.3",
+    "Pillow>=10.3",
+    "python-dotenv>=1.0",
+    "tenacity>=8.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "pytest-asyncio>=0.23", "ruff>=0.5", "mypy>=1.10"]
+
+[project.scripts]
+faceless-yt = "src.bootstrap.cli:main"
+faceless-yt-gui = "src.bootstrap.desktop:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
