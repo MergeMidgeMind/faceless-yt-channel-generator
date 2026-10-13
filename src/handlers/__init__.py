@@ -1,0 +1,1 @@
+"""Feature handlers — one stage per pipeline step."""
