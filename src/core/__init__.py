@@ -1,0 +1,1 @@
+"""Core engine: pipeline orchestration and shared runtime."""
